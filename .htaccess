@@ -1,0 +1,65 @@
+RewriteEngine On
+RewriteBase /
+
+# Перенаправлення для дружніх URL з підтримкою кінцевого слеша
+RewriteRule ^dashboard/?$ admin_panel/dashboard.php [L]
+RewriteRule ^manage-users/?$ admin_panel/manage_users.php [L]
+RewriteRule ^manage-roles/?$ admin_panel/manage_roles.php [L]
+RewriteRule ^manage-sessions/?$ admin_panel/manage_sessions.php [L]
+RewriteRule ^manage-regions/?$ admin_panel/manage_regions.php [L]
+RewriteRule ^manage-districts/?$ admin_panel/manage_districts.php [L]
+RewriteRule ^manage-candidates/?$ admin_panel/manage_candidates.php [L]
+RewriteRule ^manage-stations/?$ admin_panel/manage_stations.php [L]
+RewriteRule ^enter-votes/?$ data_input/enter_votes.php [L]
+RewriteRule ^enter-ballots/?$ data_input/enter_ballots.php [L]
+RewriteRule ^calculate-totals/?$ results_calculation/calculate_totals.php [L]
+RewriteRule ^calculate-turnout/?$ results_calculation/calculate_turnout.php [L]
+RewriteRule ^summary-report/?$ reporting/summary_report.php [L]
+RewriteRule ^select-district/?$ reporting/select_district.php [L]
+RewriteRule ^district-report/([0-9]+)/?$ reporting/district_report.php?district_id=$1 [L,QSA]
+RewriteRule ^login/?$ auth/login.php [L]
+RewriteRule ^register/?$ auth/register.php [L]
+RewriteRule ^logout/?$ auth/logout.php [L]
+RewriteRule ^start/auto-insert-data/?$ includes/auto_insert_data.php [L]
+
+# Перенаправлення для сторінок із параметрами з підтримкою кінцевого слеша
+RewriteRule ^manage-users/create/?$ admin_panel/manage_users.php?action=create [L]
+RewriteRule ^manage-users/edit/([0-9]+)/?$ admin_panel/manage_users.php?action=edit&user_id=$1 [L]
+RewriteRule ^manage-users/delete/([0-9]+)/?$ admin_panel/manage_users.php?action=delete&user_id=$1 [L]
+
+RewriteRule ^manage-roles/create/?$ admin_panel/manage_roles.php?action=create [L]
+RewriteRule ^manage-roles/edit/([0-9]+)/?$ admin_panel/manage_roles.php?action=edit&role_id=$1 [L]
+RewriteRule ^manage-roles/delete/([0-9]+)/?$ admin_panel/manage_roles.php?action=delete&role_id=$1 [L]
+
+RewriteRule ^manage-sessions/delete-all/?$ admin_panel/manage_sessions.php?action=delete_all [L]
+RewriteRule ^manage-sessions/delete/([0-9]+)?$ admin_panel/manage_sessions.php?action=delete&session_id=$1 [L]
+
+RewriteRule ^manage-regions/create/?$ admin_panel/manage_regions.php?action=create [L]
+RewriteRule ^manage-regions/populate/?$ admin_panel/manage_regions.php?action=populate [L]
+RewriteRule ^manage-regions/edit/([0-9]+)/?$ admin_panel/manage_regions.php?action=edit&region_id=$1 [L]
+RewriteRule ^manage-regions/delete/([0-9]+)/?$ admin_panel/manage_regions.php?action=delete&region_id=$1 [L]
+
+RewriteRule ^manage-districts/create/?$ admin_panel/manage_districts.php?action=create [L]
+RewriteRule ^manage-districts/edit/([0-9]+)/?$ admin_panel/manage_districts.php?action=edit&district_id=$1 [L]
+RewriteRule ^manage-districts/delete/([0-9]+)/?$ admin_panel/manage_districts.php?action=delete&district_id=$1 [L]
+
+RewriteRule ^manage-candidates/create/?$ admin_panel/manage_candidates.php?action=create [L]
+RewriteRule ^manage-candidates/edit/([0-9]+)/?$ admin_panel/manage_candidates.php?action=edit&candidate_id=$1 [L]
+RewriteRule ^manage-candidates/delete/([0-9]+)/?$ admin_panel/manage_candidates.php?action=delete&candidate_id=$1 [L]
+
+RewriteRule ^manage-stations/create/?$ admin_panel/manage_stations.php?action=create [L]
+RewriteRule ^manage-stations/edit/([0-9]+)/?$ admin_panel/manage_stations.php?action=edit&station_id=$1 [L]
+RewriteRule ^manage-stations/delete/([0-9]+)/?$ admin_panel/manage_stations.php?action=delete&station_id=$1 [L]
+
+RewriteRule ^enter-votes/create/?$ data_input/enter_votes.php?action=create [L]
+RewriteRule ^enter-votes/edit/([0-9]+)/?$ data_input/enter_votes.php?action=edit&vote_id=$1 [L]
+RewriteRule ^enter-votes/delete/([0-9]+)/?$ data_input/enter_votes.php?action=delete&vote_id=$1 [L]
+
+RewriteRule ^enter-ballots/create/?$ data_input/enter_ballots.php?action=create [L]
+RewriteRule ^enter-ballots/edit/([0-9]+)/?$ data_input/enter_ballots.php?action=edit&ballot_id=$1 [L]
+RewriteRule ^enter-ballots/delete/([0-9]+)/?$ data_input/enter_ballots.php?action=delete&ballot_id=$1 [L]
+
+# Перенаправлення на 404 для всіх невідповідних маршрутів
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /404.php [L]

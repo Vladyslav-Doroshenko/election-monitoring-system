@@ -1,0 +1,99 @@
+.auth-form {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: calc(100vh - 128px);
+}
+
+.auth-container {
+  border-color: #6c757d !important;
+}
+
+.auth-container,
+.modal .modal-form,
+.auth-container form {
+  gap: 8px;
+}
+
+canvas#resultsChart,
+canvas#stationsChart,
+canvas#generalStatsChart,
+canvas#districtsResultsChart {
+  margin: auto;
+}
+
+canvas#resultsChart,
+canvas#generalStatsChart {
+  width: 400px !important;
+  height: 400px !important;
+}
+
+canvas#stationsChart,
+canvas#districtsResultsChart {
+  width: 550px !important;
+  height: 550px !important;
+}
+
+.modal-btn,
+.dashboard-wrapper {
+  gap: 16px;
+}
+
+#table1, #table111 {
+  background: white;
+  margin-top: 30px;
+  border-radius: 10px;
+}
+
+
+#table1 table thead {
+  background: #4ba133;
+  color: #fff;
+}
+
+#table1 table tbody tr:nth-of-type(odd) {
+  background-color: rgba(176, 198, 113, .05);
+}
+
+#table1 table {
+  margin-top: -8px;
+}
+
+.bootstrap-table {
+  margin: 0 20px;
+}
+
+.ems-icon {
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  transition: .5s;
+}
+
+.ems-icon:hover {
+  text-decoration: none;
+  transition: .5s;
+}
+
+.trash {
+  color: #E53935;
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 15px #fff;
+}
+
+.trash:hover {
+  color: #fff;
+  text-shadow: 0 0 1px #E53935, 0 0 3px #E53935, 0 0 5px #E53935;
+  transition: .5s;
+}
+
+.edit {
+  color: #2C95E6FF;
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 15px #fff;
+}
+
+.edit:hover {
+  color: #fff;
+  text-shadow: 0 0 1px #2C95E6FF, 0 0 3px #2C95E6FF, 0 0 5px #2C95E6FF;
+  transition: .5s;
+}
